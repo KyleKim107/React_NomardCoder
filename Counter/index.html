@@ -12,8 +12,8 @@
         function App(){ 
             const [counter, setCounter] = React.useState(0); // return your data, a function
             const onClick = () => {
-                setCounter(counter + 1)
-                // ReactDOM.render(<App/>,root); // no need to call render manually
+                setCounter((current) => current + 1) // react guarentee update current value against unexpected update. 
+                //setCounter(counter + 1)
             }
             return(
                 <div>
