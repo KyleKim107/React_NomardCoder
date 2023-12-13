@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        function Btn({text, changeVlaue}){
+            console.log(text, "was rendered ")
+            return (
+                    <button 
+                        onClick={changeVlaue}
+                        style={{
+                            backgroundColor: "tomato",
+                            color: "white",
+                            padding: "10px 20px",
+                            border: 0,
+                            borderRadius: 10,
+                        }}>
+                        {text}
+                    </button>
+            );
+        }
+        function ConfirmBtn(){
+            return <button
+            style={{
+                backgroundColor: "tomato",
+                color: "white",
+                padding: "10px 20px",
+                border: 0,
+                borderRadius: 10,
+            }}>Confirm Button</button>
+        }
+        const MemoriedBtn = React.memo(Btn);//Prevent for re-rendering the btn that has not changed
+        function App(){ 
+            const [value, setValue] = React.useState("Save Change");
+            const changeValue = () => setValue("Revert Changes");
+          return (
+            <div>
+                <MemoriedBtn text={value} changeVlaue={changeValue}/>
+                <MemoriedBtn text="Continue" />
+            </div>
+          );
+        
+        }
+        const root = document.getElementById("root");
+        ReactDOM.render(<App/>,root); // first render
+    </script>
+</html>
