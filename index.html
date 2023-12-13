@@ -9,25 +9,19 @@
 
     <script type="text/babel">
         const root = document.getElementById("root");
-        let counter = 0;
-        
-        function countUp(){
-            counter = counter + 1
-            render()
-        }
-
-        function render(){
-            ReactDOM.render(<Container/>,root); // re-render
-        }
-
-        function Container(){ 
+        function App(){ 
+            const [counter, setCounter] = React.useState(0); // return your data, a function
+            const onClick = () => {
+                setCounter(counter + 1)
+                // ReactDOM.render(<App/>,root); // no need to call render manually
+            }
             return(
                 <div>
-                    <h3> total count: {counter} </h3> /* react js only changing the value that counted up */
-                    <button onClick={countUp} >Click Me</button>
+                    <h3> total count: {counter} </h3> 
+                    <button onClick={onClick} >Click Me</button>
                 </div>
             );
         }
-        ReactDOM.render(<Container/>,root); // first render
+        ReactDOM.render(<App/>,root); // first render
     </script>
 </html>
