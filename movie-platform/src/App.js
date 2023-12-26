@@ -1,10 +1,25 @@
 import './App.css';
-import {useState, useEffect} from 'react';
-import Movie from './components/Movie';
+import{
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import Home from './route/Home';
+import Detail from './route/Detail';
 
 function App() {
-  return null;
+  return (
+  <Router>
+    <Switch>
+      
+      <Route path="/movie">
+        <Detail/>
+      </Route>
+      <Route path="/">
+        <Home/>
+      </Route>
+    </Switch>
+  </Router>);
 }
 
 export default App;

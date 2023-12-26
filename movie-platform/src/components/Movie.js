@@ -3,7 +3,7 @@ function Movie({ coverImage, title, summary, genres}) {
     return (
         <div>
           <img src={coverImage} alter={title}/>
-          <h2>{title}</h2>
+          <h2><a href="/movie">{title}</a></h2>
           <p>{summary}</p>
           <ul>
             {genres.map((g) => (<li key={g}>{g}</li>))}
