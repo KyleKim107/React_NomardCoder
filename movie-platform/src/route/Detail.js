@@ -1,5 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect} from "react"
+import React from 'react';
+
 function Details(){
     const {id} = useParams();
     const getMovie = async () =>{
@@ -12,7 +14,6 @@ function Details(){
         getMovie()
     }, []);
 
-    
     return <h1>Detail</h1>
 }
 
